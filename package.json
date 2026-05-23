@@ -1,0 +1,13 @@
+{
+  "name": "ai-ed-tech",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sean-balks/AI-Ed-Tech.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
