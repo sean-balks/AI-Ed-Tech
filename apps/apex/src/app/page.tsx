@@ -70,7 +70,11 @@ export default function Home() {
 
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0d0d1a]/90 backdrop-blur-sm border-b border-white/10 px-6 py-4 flex items-center justify-between">
-        <span className="text-xl font-bold tracking-tight text-white">apex</span>
+        <div className="flex items-center gap-2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/apex-logo-192x192.png" alt="Apex" className="w-8 h-8 rounded-lg" />
+          <span className="text-xl font-bold tracking-tight text-white">apex</span>
+        </div>
         <a
           href="#waitlist"
           className="bg-amber-500 text-[#0d0d1a] text-sm font-bold px-5 py-2 rounded-lg hover:bg-amber-400 transition-colors"

@@ -11,6 +11,16 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: "Lumio | AI-Powered SAT & ACT Prep",
   description: "AI-powered SAT and ACT prep that adapts to your child's gaps and teaches concepts they actually understand — for $19/month.",
+  icons: {
+    icon: [
+      { url: "/lumio-logo-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/lumio-logo-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/lumio-logo-192x192.png",
+  },
+  openGraph: {
+    images: [{ url: "/lumio-logo-512x512.png" }],
+  },
 };
 
 export default function RootLayout({

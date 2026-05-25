@@ -11,6 +11,16 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: "Apex | Elite AI SAT & ACT Prep",
   description: "Elite AI-powered SAT and ACT prep that knows your weaknesses better than any tutor — for $99/month.",
+  icons: {
+    icon: [
+      { url: "/apex-logo-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/apex-logo-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apex-logo-192x192.png",
+  },
+  openGraph: {
+    images: [{ url: "/apex-logo-512x512.png" }],
+  },
 };
 
 export default function RootLayout({
