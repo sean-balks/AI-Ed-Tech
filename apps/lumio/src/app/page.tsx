@@ -1,18 +1,23 @@
 "use client";
+import { createClient } from '@supabase/supabase-js'
 import { useState, useEffect } from "react";
 
 const colleges = [
-  "Harvard University", "Stanford University", "MIT", "Yale University",
-  "Princeton University", "Columbia University", "UPenn", "Duke University",
-  "Northwestern University", "Johns Hopkins", "Vanderbilt University",
+  "Harvard University", "Duke University",
+  "Northwestern University", "Johns Hopkins",
   "UCLA", "UC Berkeley", "University of Michigan", "NYU", "Boston College",
-  "Georgetown University", "Emory University", "USC", "Tulane University",
-  "University of Virginia", "Wake Forest", "Cornell University", "Brown University",
+  "Tulane University",
 ];
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -23,9 +28,25 @@ export default function Home() {
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+    e.preventDefault()
+    
+    const { error } = await supabase
+      .from('waitlist')
+      .insert([{ email, site: 'lumio' }])
+
+    if (error) {
+      console.error(error)
+      setErrorMsg("Something went wrong. Please try again.")
+    } else {
+      setEmail('')
+      setErrorMsg(null)
+      setSubmitted(true)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const w = window as any
+      w.gtag?.('event', 'sign_up')
+      w.fbq?.('track', 'Lead')
+    }
+  }
 
   return (
     <main className="min-h-screen bg-white font-sans">
@@ -86,6 +107,9 @@ export default function Home() {
                 </div>
               )}
             </form>
+            {errorMsg && (
+              <p className="text-red-500 text-xs mt-2">{errorMsg}</p>
+            )}
             <p className="text-gray-400 text-xs mt-4">No credit card required. Cancel anytime.</p>
           </div>
 
