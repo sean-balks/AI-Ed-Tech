@@ -2,11 +2,8 @@
 import { createClient } from "@supabase/supabase-js";
 import { useState, useEffect } from "react";
 
-const colleges = [
-  "Harvard University", "Princeton University", "MIT",
-  "Stanford University", "Yale University", "Columbia University",
-  "Duke University", "Northwestern University", "Johns Hopkins", "UChicago",
-];
+const LOGO_COUNT = 5;
+const TICKER_LOOP_PX = LOGO_COUNT * 160;
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -30,7 +27,7 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setOffset((prev) => (prev + 1) % (colleges.length * 200));
+      setOffset((prev) => (prev + 1) % TICKER_LOOP_PX);
     }, 30);
     return () => clearInterval(interval);
   }, []);
@@ -231,20 +228,43 @@ export default function Home() {
       </section>
 
       {/* SCROLLING COLLEGE TICKER */}
-      <section className="py-10 border-y border-white/10 overflow-hidden">
-        <p className="text-center text-xs text-white/30 uppercase tracking-widest font-medium mb-6">
+      <section className="py-14 border-y border-white/10 overflow-hidden">
+        <p className="text-center text-xs text-white/35 uppercase tracking-[0.28em] font-medium mb-10">
           Students using Apex have been accepted to
         </p>
-        <div className="relative flex overflow-hidden">
+
+        <div className="relative overflow-hidden">
           <div
-            className="flex gap-12 whitespace-nowrap transition-none"
+            className="flex items-center gap-18 whitespace-nowrap transition-none"
             style={{ transform: `translateX(-${offset}px)` }}
           >
-            {[...colleges, ...colleges, ...colleges].map((college, i) => (
-              <span key={i} className="text-white/30 font-medium text-sm flex-shrink-0">
-                {college}
-              </span>
-            ))}
+            {[...Array(3)].flatMap((_, rep) =>
+              [
+                { src: "/college_logos/cornell_logo.png", alt: "Cornell" },
+                { src: "/college_logos/duke_logo.png", alt: "Duke" },
+                { src: "/college_logos/gtech_logo.svg", alt: "Georgia Tech" },
+                { src: "/college_logos/mit_logo.png", alt: "MIT" },
+                { src: "/college_logos/northeastern_logo.png", alt: "Northeastern" },
+                { src: "/college_logos/nyu_logo.png", alt: "NYU" },
+                { src: "/college_logos/stanford_logo.png", alt: "Stanford" },
+                { src: "/college_logos/michigan_logo.png", alt: "Michigan" },
+                { src: "/college_logos/usc_logo.png", alt: "USC" },
+                { src: "/college_logos/ucla_logo.png", alt: "USC" },
+                
+              ].map((logo, i) => (
+                <div
+                  key={`${rep}-${i}`}
+                  className="h-16 flex-shrink-0 flex items-center justify-center"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="max-h-14 max-w-[120px] object-contain grayscale opacity-100 contrast-125 brightness-125"
+                  />
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>

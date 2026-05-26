@@ -183,23 +183,45 @@ export default function Home() {
       </section>
 
       {/* SCROLLING COLLEGE TICKER */}
-      <section className="py-10 border-y border-gray-100 overflow-hidden">
-        <p className="text-center text-xs text-gray-400 uppercase tracking-widest font-medium mb-6">
-          Students using Lumio have been accepted to
-        </p>
-        <div className="relative flex overflow-hidden">
+<section className="py-12 border-y border-black/10 overflow-hidden bg-white">
+  <p className="text-center text-xs text-black/45 uppercase tracking-[0.28em] font-medium mb-10">
+    Students using Lumio have been accepted to
+  </p>
+
+  <div className="relative overflow-hidden">
+    <div
+      className="flex items-center gap-18 whitespace-nowrap transition-none"
+      style={{ transform: `translateX(-${offset}px)` }}
+    >
+      {[...Array(3)].flatMap((_, rep) =>
+        [
+          { src: "/college_logos/cornell_logo_2.png", alt: "Cornell" },
+          { src: "/college_logos/duke_logo.png", alt: "Duke" },
+          { src: "/college_logos/gtech_logo.svg", alt: "Georgia Tech" },
+          { src: "/college_logos/mit_logo.png", alt: "MIT" },
+          { src: "/college_logos/northeastern_logo.png", alt: "Northeastern" },
+          { src: "/college_logos/nyu_logo.png", alt: "NYU" },
+          { src: "/college_logos/stanford_logo.png", alt: "Stanford" },
+          { src: "/college_logos/michigan_logo.png", alt: "Michigan" },
+          { src: "/college_logos/usc_logo.png", alt: "USC" },
+          { src: "/college_logos/ucla_logo.png", alt: "UCLA" },
+        ].map((logo, i) => (
           <div
-            className="flex gap-12 whitespace-nowrap transition-none"
-            style={{ transform: `translateX(-${offset}px)` }}
+            key={`${rep}-${i}`}
+            className="h-16 flex-shrink-0 flex items-center justify-center"
           >
-            {[...colleges, ...colleges, ...colleges].map((college, i) => (
-              <span key={i} className="text-gray-400 font-medium text-sm flex-shrink-0">
-                {college}
-              </span>
-            ))}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              className="max-h-16 max-w-[80px] object-contain grayscale opacity-70 contrast-125 brightness-90"
+            />
           </div>
-        </div>
-      </section>
+        ))
+      )}
+    </div>
+  </div>
+</section>
 
       {/* VALUE PROPS */}
       <section className="py-24 px-6 max-w-5xl mx-auto">
