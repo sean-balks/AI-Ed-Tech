@@ -185,7 +185,7 @@ export default function Home() {
       {/* SCROLLING COLLEGE TICKER */}
 <section className="py-12 border-y border-black/10 overflow-hidden bg-white">
   <p className="text-center text-xs text-black/45 uppercase tracking-[0.28em] font-medium mb-10">
-    Students using Lumio have been accepted to
+    Used by students admitted to
   </p>
 
   <div className="relative overflow-hidden">
@@ -344,7 +344,11 @@ export default function Home() {
       <footer className="py-8 px-6 border-t border-gray-100">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-gray-900 font-bold">lumio</span>
-          <p className="text-gray-400 text-sm">© 2026 Lumio. All rights reserved.</p>
+          <div className="flex gap-6 text-sm text-gray-400">
+            <a href="/privacy" className="hover:text-gray-600 transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-gray-600 transition-colors">Terms of Service</a>
+          </div>
+          <p className="text-gray-400 text-sm">© 2026 Superday LLC</p>
         </div>
       </footer>
 

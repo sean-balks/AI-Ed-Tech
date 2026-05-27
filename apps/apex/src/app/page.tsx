@@ -230,7 +230,7 @@ export default function Home() {
       {/* SCROLLING COLLEGE TICKER */}
       <section className="py-14 border-y border-white/10 overflow-hidden">
         <p className="text-center text-xs text-white/35 uppercase tracking-[0.28em] font-medium mb-10">
-          Students using Apex have been accepted to
+          Used by students admitted to
         </p>
 
         <div className="relative overflow-hidden">
@@ -405,7 +405,11 @@ export default function Home() {
       <footer className="py-8 px-6 border-t border-white/10">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-white font-bold">apex</span>
-          <p className="text-white/30 text-sm">© 2026 Apex. All rights reserved.</p>
+          <div className="flex gap-6 text-sm text-white/30">
+            <a href="/privacy" className="hover:text-white/60 transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-white/60 transition-colors">Terms of Service</a>
+          </div>
+          <p className="text-white/30 text-sm">© 2026 Superday LLC</p>
         </div>
       </footer>
 

@@ -192,14 +192,14 @@ export default function Home() {
       {/* SOCIAL PROOF BAR */}
       <section className="py-14 border-y border-black/10 bg-white">
         <p className="text-center text-xs text-black/40 uppercase tracking-[0.28em] font-medium mb-10">
-          Students using Scout have been accepted to
+          Used by students admitted to
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 px-6 max-w-4xl mx-auto">
           {[
             {
-              name: "Harvard Medical School",
-              abbr: "HMS",
-              sub: "Harvard University",
+              name: "NYIT Medical School",
+              abbr: "NYIT",
+              sub: "New York Institute of Technology",
             },
             {
               name: "Johns Hopkins Medicine",
@@ -426,7 +426,11 @@ export default function Home() {
       <footer className="py-8 px-6 border-t border-gray-100">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-gray-900 font-bold">scout</span>
-          <p className="text-gray-400 text-sm">© 2026 Scout. All rights reserved.</p>
+          <div className="flex gap-6 text-sm text-gray-400">
+            <a href="/privacy" className="hover:text-gray-600 transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-gray-600 transition-colors">Terms of Service</a>
+          </div>
+          <p className="text-gray-400 text-sm">© 2026 Superday LLC</p>
         </div>
       </footer>
 
