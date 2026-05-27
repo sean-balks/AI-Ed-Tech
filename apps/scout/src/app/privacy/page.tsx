@@ -10,11 +10,8 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen bg-white font-sans">
       <nav className="border-b border-gray-100 px-6 py-4 flex items-center justify-between max-w-4xl mx-auto">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-md bg-teal-600 flex items-center justify-center">
-            <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-            </svg>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/scout-logo-192x192.png" alt="Scout" className="w-7 h-7 rounded-md" />
           <span className="font-bold text-gray-900">scout</span>
         </Link>
         <Link href="/" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">← Back to home</Link>

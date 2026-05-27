@@ -50,11 +50,8 @@ export default function Home() {
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center">
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-            </svg>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/scout-logo-192x192.png" alt="Scout" className="w-8 h-8 rounded-lg" />
           <span className="text-xl font-bold tracking-tight text-gray-900">scout</span>
         </div>
         <a
